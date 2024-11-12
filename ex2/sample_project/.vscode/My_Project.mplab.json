@@ -1,0 +1,28 @@
+{
+    "version": "1.1",
+    "configurations": [
+        {
+            "name": "default",
+            "id": "conf1",
+            "targetDevice": "PIC18F57Q43",
+            "packs": [
+                {
+                    "name": "PIC18F-Q_DFP",
+                    "vendor": "Microchip",
+                    "version": "1.25.433"
+                }
+            ],
+            "fileSet": "default",
+            "outputFiles": []
+        }
+    ],
+    "propertyGroups": [],
+    "fileSets": [
+        {
+            "name": "default",
+            "files": [
+                "main.c"
+            ]
+        }
+    ]
+}
