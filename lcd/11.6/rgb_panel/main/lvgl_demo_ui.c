@@ -7,6 +7,9 @@
 // This demo UI is adapted from LVGL official example: https://docs.lvgl.io/master/examples.html#scatter-chart
 
 #include "lvgl.h"
+#include "Untitled1.c"
+#include "Untitled2.c"
+#include "kul.c"
 
 static void draw_event_cb(lv_event_t *e)
 {
@@ -39,29 +42,37 @@ static void add_data(lv_timer_t *timer)
     lv_chart_set_next_value2(chart, lv_chart_get_series_next(chart, NULL), lv_rand(0, 200), lv_rand(0, 1000));
 }
 
+
 void example_lvgl_demo_ui(lv_disp_t *disp)
+
 {
+   // LV_IMG_DECLARE(Untitled1);
+
+    // lv_obj_t *scr = lv_disp_get_scr_act(disp);
+    // lv_obj_t *label = lv_label_create(scr);
+    // lv_label_set_text(label, "Hello"); // 设置标签内容
+
+    // // 将标签对象居中对齐
+    // lv_obj_align(label, LV_ALIGN_CENTER, 0, 0);
+    // lv_obj_t *img = lv_img_create(lv_scr_act());  // 创建图像对象
+
+    // // 设置图像源为 PNG 文件路径
+    // lv_img_set_src(img, &Untitled1); 
+
+    // // 将图像居中显示
+    // lv_obj_align(img, LV_ALIGN_CENTER, 0, 0);
+
+    // 获取当前显示屏的活动屏幕
     lv_obj_t *scr = lv_disp_get_scr_act(disp);
-    lv_obj_t *chart = lv_chart_create(scr);
-    lv_obj_set_size(chart, 200, 150);
-    lv_obj_align(chart, LV_ALIGN_CENTER, 0, 0);
-    lv_obj_add_event_cb(chart, draw_event_cb, LV_EVENT_DRAW_PART_BEGIN, NULL);
-    lv_obj_set_style_line_width(chart, 0, LV_PART_ITEMS);   /*Remove the lines*/
 
-    lv_chart_set_type(chart, LV_CHART_TYPE_SCATTER);
+    // 创建图像对象
+    lv_obj_t *img = lv_img_create(scr);
 
-    lv_chart_set_axis_tick(chart, LV_CHART_AXIS_PRIMARY_X, 5, 5, 5, 1, true, 30);
-    lv_chart_set_axis_tick(chart, LV_CHART_AXIS_PRIMARY_Y, 10, 5, 6, 5, true, 50);
+    // 设置图像源为 C 数组中的图片数据
+    lv_img_set_src(img, &kul);  // 这里设置图片为 Untitled2
 
-    lv_chart_set_range(chart, LV_CHART_AXIS_PRIMARY_X, 0, 200);
-    lv_chart_set_range(chart, LV_CHART_AXIS_PRIMARY_Y, 0, 1000);
+    // 将图像居中显示
+    lv_obj_align(img, LV_ALIGN_CENTER, 0, 0);
 
-    lv_chart_set_point_count(chart, 50);
-
-    lv_chart_series_t *ser = lv_chart_add_series(chart, lv_palette_main(LV_PALETTE_RED), LV_CHART_AXIS_PRIMARY_Y);
-    for (int i = 0; i < 50; i++) {
-        lv_chart_set_next_value2(chart, ser, lv_rand(0, 200), lv_rand(0, 1000));
-    }
-
-    lv_timer_create(add_data, 100, chart);
+    
 }

@@ -1,0 +1,22 @@
+# Distributed under the OSI-approved BSD 3-Clause License.  See accompanying
+# file Copyright.txt or https://cmake.org/licensing for details.
+
+cmake_minimum_required(VERSION 3.5)
+
+file(MAKE_DIRECTORY
+  "D:/esp-idf/container/v5.3.1/esp-idf/components/bootloader/subproject"
+  "D:/codes/ee3esp32/motor/11.13/ledc_basic/build/bootloader"
+  "D:/codes/ee3esp32/motor/11.13/ledc_basic/build/bootloader-prefix"
+  "D:/codes/ee3esp32/motor/11.13/ledc_basic/build/bootloader-prefix/tmp"
+  "D:/codes/ee3esp32/motor/11.13/ledc_basic/build/bootloader-prefix/src/bootloader-stamp"
+  "D:/codes/ee3esp32/motor/11.13/ledc_basic/build/bootloader-prefix/src"
+  "D:/codes/ee3esp32/motor/11.13/ledc_basic/build/bootloader-prefix/src/bootloader-stamp"
+)
+
+set(configSubDirs )
+foreach(subDir IN LISTS configSubDirs)
+    file(MAKE_DIRECTORY "D:/codes/ee3esp32/motor/11.13/ledc_basic/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+endforeach()
+if(cfgdir)
+  file(MAKE_DIRECTORY "D:/codes/ee3esp32/motor/11.13/ledc_basic/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+endif()

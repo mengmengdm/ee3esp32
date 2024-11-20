@@ -4,19 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "C:/Users/fhr/esp/v5.3.1/esp-idf/components/bootloader/subproject"
-  "C:/codes/esp32/motor/ledc_basic/build/bootloader"
-  "C:/codes/esp32/motor/ledc_basic/build/bootloader-prefix"
-  "C:/codes/esp32/motor/ledc_basic/build/bootloader-prefix/tmp"
-  "C:/codes/esp32/motor/ledc_basic/build/bootloader-prefix/src/bootloader-stamp"
-  "C:/codes/esp32/motor/ledc_basic/build/bootloader-prefix/src"
-  "C:/codes/esp32/motor/ledc_basic/build/bootloader-prefix/src/bootloader-stamp"
+  "D:/esp-idf/container/v5.3.1/esp-idf/components/bootloader/subproject"
+  "D:/codes/ee3esp32/motor/ledc_basic/build/bootloader"
+  "D:/codes/ee3esp32/motor/ledc_basic/build/bootloader-prefix"
+  "D:/codes/ee3esp32/motor/ledc_basic/build/bootloader-prefix/tmp"
+  "D:/codes/ee3esp32/motor/ledc_basic/build/bootloader-prefix/src/bootloader-stamp"
+  "D:/codes/ee3esp32/motor/ledc_basic/build/bootloader-prefix/src"
+  "D:/codes/ee3esp32/motor/ledc_basic/build/bootloader-prefix/src/bootloader-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "C:/codes/esp32/motor/ledc_basic/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
+    file(MAKE_DIRECTORY "D:/codes/ee3esp32/motor/ledc_basic/build/bootloader-prefix/src/bootloader-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "C:/codes/esp32/motor/ledc_basic/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "D:/codes/ee3esp32/motor/ledc_basic/build/bootloader-prefix/src/bootloader-stamp${cfgdir}") # cfgdir has leading slash
 endif()

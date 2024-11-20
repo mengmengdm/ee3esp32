@@ -2129,7 +2129,7 @@
     #ifdef CONFIG_LV_USE_PNG
         #define LV_USE_PNG CONFIG_LV_USE_PNG
     #else
-        #define LV_USE_PNG 0
+        #define LV_USE_PNG 1
     #endif
 #endif
 

@@ -22,7 +22,7 @@ static const char *TAG = "example";
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //////////////////// Please update the following configuration according to your LCD spec //////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#define EXAMPLE_LCD_PIXEL_CLOCK_HZ     (9 * 1000 * 1000) //9MHz
+#define EXAMPLE_LCD_PIXEL_CLOCK_HZ     (15 * 1000 * 1000) //20MHz
 #define EXAMPLE_LCD_BK_LIGHT_ON_LEVEL  1
 #define EXAMPLE_LCD_BK_LIGHT_OFF_LEVEL !EXAMPLE_LCD_BK_LIGHT_ON_LEVEL
 #define EXAMPLE_PIN_NUM_BK_LIGHT       4
@@ -35,8 +35,8 @@ static const char *TAG = "example";
 #define EXAMPLE_PIN_NUM_DATA2          12 // B2
 #define EXAMPLE_PIN_NUM_DATA3          11 // B3
 #define EXAMPLE_PIN_NUM_DATA4          10 // B4
-#define EXAMPLE_PIN_NUM_DATA5          39 // G0
-#define EXAMPLE_PIN_NUM_DATA6          38 // G1
+#define EXAMPLE_PIN_NUM_DATA5          38 // G0
+#define EXAMPLE_PIN_NUM_DATA6          39 // G1
 #define EXAMPLE_PIN_NUM_DATA7          45 // G2
 #define EXAMPLE_PIN_NUM_DATA8          48 // G3
 #define EXAMPLE_PIN_NUM_DATA9          47 // G4
@@ -46,6 +46,7 @@ static const char *TAG = "example";
 #define EXAMPLE_PIN_NUM_DATA13         42 // R2
 #define EXAMPLE_PIN_NUM_DATA14         41 // R3
 #define EXAMPLE_PIN_NUM_DATA15         40 // R4
+#define EXAMPLE_PIN_NUM_DATA          19
 
 #define EXAMPLE_PIN_NUM_DISP_EN        -1
 
@@ -167,7 +168,7 @@ void app_main(void)
     ESP_LOGI(TAG, "Install RGB LCD panel driver");
     esp_lcd_panel_handle_t panel_handle = NULL;
     esp_lcd_rgb_panel_config_t panel_config = {
-        .data_width = 16, // RGB888 in parallel mode, thus 16bit in width
+        .data_width = 16, // RGB565 in parallel mode, thus 16bit in width
         .dma_burst_size = 64,
         .num_fbs = EXAMPLE_LCD_NUM_FB,
 #if CONFIG_EXAMPLE_USE_BOUNCE_BUFFER
@@ -180,19 +181,19 @@ void app_main(void)
         .hsync_gpio_num = EXAMPLE_PIN_NUM_HSYNC,
         .de_gpio_num = EXAMPLE_PIN_NUM_DE,
         .data_gpio_nums = {
-            EXAMPLE_PIN_NUM_DATA0,
-            EXAMPLE_PIN_NUM_DATA1,
+            EXAMPLE_PIN_NUM_DATA,
+            EXAMPLE_PIN_NUM_DATA,
             EXAMPLE_PIN_NUM_DATA2,
             EXAMPLE_PIN_NUM_DATA3,
             EXAMPLE_PIN_NUM_DATA4,
-            EXAMPLE_PIN_NUM_DATA5,
-            EXAMPLE_PIN_NUM_DATA6,
-            EXAMPLE_PIN_NUM_DATA7,
+            EXAMPLE_PIN_NUM_DATA,
+            EXAMPLE_PIN_NUM_DATA,
+            EXAMPLE_PIN_NUM_DATA,
             EXAMPLE_PIN_NUM_DATA8,
             EXAMPLE_PIN_NUM_DATA9,
             EXAMPLE_PIN_NUM_DATA10,
-            EXAMPLE_PIN_NUM_DATA11,
-            EXAMPLE_PIN_NUM_DATA12,
+            EXAMPLE_PIN_NUM_DATA,
+            EXAMPLE_PIN_NUM_DATA,
             EXAMPLE_PIN_NUM_DATA13,
             EXAMPLE_PIN_NUM_DATA14,
             EXAMPLE_PIN_NUM_DATA15,
